@@ -16,6 +16,7 @@
 package okhttp.android.testapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import okhttp3.Call
 import okhttp3.Callback
@@ -40,14 +41,14 @@ class MainActivity : ComponentActivity() {
           call: Call,
           e: IOException,
         ) {
-          println("failed: $e")
+          Log.d("MainActivity", "onFailure: $e")
         }
 
         override fun onResponse(
           call: Call,
           response: Response,
         ) {
-          println("response: ${response.code}")
+          Log.d("MainActivity", "response: ${response.code}")
           response.close()
         }
       },
